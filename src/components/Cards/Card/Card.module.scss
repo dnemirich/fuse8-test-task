@@ -1,0 +1,52 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 2rem 3.4rem;
+  min-width: 51.8rem;
+  min-height: 15rem;
+
+  box-shadow: 0 0.7rem 2.5rem 0 rgba(100, 100, 111, 0.2);
+
+  transition: transform ease-in-out 0.3s;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+.cardTitle {
+  font-family: var(--main-font) sans-serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: var(--main-color)
+}
+
+.supportInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status,
+.date {
+  font-family: var(--secondary-font) sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+
+  color: var(--pale-color);
+}
+
+.status {
+  & span {
+    font-weight: 700;
+  }
+}
+
+.alive {
+  color: var(--alive-status-color)
+}
+
+.dead {
+  color: var(--dead-status-color)
+}
