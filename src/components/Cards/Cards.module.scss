@@ -1,0 +1,19 @@
+.cardsContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: minmax(26.2rem, auto);
+  gap: 2rem;
+
+  & > div:nth-child(1),
+  & > div:nth-child(2) {
+    grid-column: span 3 / span 3;
+    grid-row: span 2;
+
+  }
+
+  & > div:nth-child(n + 3) {
+    grid-column: span 2 / span 2;
+    grid-row: span 1;
+  }
+}
