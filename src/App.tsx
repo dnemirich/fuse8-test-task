@@ -8,7 +8,7 @@ export function App() {
   const { isLoading } = useStore();
   return (
     <>
-      {isLoading && <LinearProgress style={{ color: '#656ec2' }} />}
+      {isLoading && <LinearProgress sx={{ color: '#656ec2' }} />}
       <main>
         <h1>Find a character from Rick and Morty series</h1>
         <div className={'container'}>

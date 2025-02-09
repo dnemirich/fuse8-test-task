@@ -21,18 +21,25 @@ export const Cards = () => {
     if (isNextApiPageNeeded) {
       setApiPage(apiPage + 1);
     }
-  }, [currentPage])
+  }, [currentPage]);
 
-  const pageChangeHandler = (event: ChangeEvent<unknown>, page: number) => {
+  const pageChangeHandler = (_: ChangeEvent<unknown>, page: number) => {
     setCurrentPage(page);
-  }
+  };
 
   return (
     <>
       <div className={s.cardsContainer}>
-        { charactersToShow && charactersToShow.map(character => <Card key={character.id} character={character} />) }
+        {charactersToShow && charactersToShow.map(character => <Card key={character.id} character={character} />)}
       </div>
-      { charactersFound > 8 && <Pagination count={paginationTotalPages} page={currentPage} onChange={pageChangeHandler} size={"large"} />}
+      {charactersFound > 8 &&
+        <Pagination count={paginationTotalPages} page={currentPage} onChange={pageChangeHandler} size={'large'} sx={{
+          '& .MuiPaginationItem-root': {
+            fontSize: '1.6rem',
+            fontFamily: 'Montserrat',
+            color: '#282626'
+          },
+        }} />}
     </>
 
   );
