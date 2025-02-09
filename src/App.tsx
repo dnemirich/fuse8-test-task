@@ -7,10 +7,11 @@ export function App() {
 
   return (
     <main>
-      <div className={"container"}>
-        <div className={"wrapper"}>
+      <h1>Find a character from Rick and Morty series</h1>
+      <div className={'container'}>
+        <div className={'wrapper'}>
           <SearchField />
-          <Cards/>
+          <Cards />
         </div>
       </div>
     </main>
