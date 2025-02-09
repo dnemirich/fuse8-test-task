@@ -4,7 +4,7 @@
   justify-content: space-between;
 
   padding: 2rem 3.4rem;
-  min-width: 51.8rem;
+  //min-width: 51.8rem;
   min-height: 15rem;
 
   box-shadow: 0 0.7rem 2.5rem 0 rgba(100, 100, 111, 0.2);
@@ -17,20 +17,23 @@
 }
 
 .cardTitle {
-  font-family: var(--main-font) sans-serif;
+  font-family: var(--primary-font) sans-serif;
   font-weight: 400;
+  //font-size: clamp(1.4rem, 2vw, 2.5rem);
   font-size: 2.5rem;
   color: var(--main-color)
 }
 
 .supportInfo {
   display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
   justify-content: space-between;
 }
 
 .status,
 .date {
-  font-family: var(--secondary-font) sans-serif;
+  font-family: var(--secondary-font);
   font-weight: 400;
   font-size: 1.4rem;
 
