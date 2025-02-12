@@ -11,6 +11,7 @@ export const SearchField = () => {
     searchQuery,
     apiPage,
     setTotalPages,
+    setCurrentPage,
     charactersFound,
     setCharactersFound,
     hasResults,
@@ -20,15 +21,17 @@ export const SearchField = () => {
 
   useEffect(() => {
     if (searchQuery.length >= 3) {
-      updateCharacters([])
+
+      if (apiPage === 1) {
+        updateCharacters([]);
+      }
       updateLoadingStatus(true);
 
       api.getAllCharacters({ name: searchQuery, page: apiPage })
         .then((res) => {
             setCharactersFound(res.data.info.count);
             setTotalPages(res.data.info.pages);
-            // updateCharacters([...characters, ...res.data.results]);
-          updateCharacters((prev) => [...prev, ...res.data.results]);
+            updateCharacters((prev) => [...prev, ...res.data.results]);
             setHasResults(true);
           },
         ).catch((e) => {
@@ -43,14 +46,15 @@ export const SearchField = () => {
       updateCharacters([]);
       setHasResults(false);
       setCharactersFound(0);
-      setTotalPages(0)
+      setTotalPages(0);
     }
   }, [searchQuery, apiPage]);
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const newQuery = e.currentTarget.value;
-    setApiPage(1);
     if (newQuery !== searchQuery) {
+      setApiPage(1);
+      setCurrentPage(1);
       updateSearchQuery(e.currentTarget.value);
     }
   };

@@ -16,12 +16,15 @@ export const Cards = () => {
 
   const charactersToShow = characters.slice(startIndex, endIndex);
 
+
   useEffect(() => {
+    if (characters.length === 0) return;
     const isNextApiPageNeeded = endIndex > characters.length && apiPage * apiPageSize < charactersFound;
     if (isNextApiPageNeeded) {
       setApiPage(apiPage + 1);
     }
-  }, [currentPage, apiPage]);
+  }, [currentPage, apiPage, characters.length]);
+
 
   const pageChangeHandler = (_: ChangeEvent<unknown>, page: number) => {
     setCurrentPage(page);
@@ -37,7 +40,7 @@ export const Cards = () => {
           '& .MuiPaginationItem-root': {
             fontSize: '1.4rem',
             fontFamily: 'Montserrat',
-            color: '#282626'
+            color: '#282626',
           },
         }} />}
     </>

@@ -16,7 +16,6 @@ type State = {
 }
 
 type Actions = {
-  // updateCharacters: (characters: CharacterType[]) => void
   updateCharacters: (characters: CharacterType[] | ((prev: CharacterType[]) => CharacterType[])) => void;
   updateSearchQuery: (query: string) => void
   updateLoadingStatus: (status: boolean) => void
@@ -38,10 +37,11 @@ export const useStore = create<State & Actions>((set) => ({
   apiPage: 1,
   charactersFound: 0,
   hasResults: false,
-  // updateCharacters: (characters) => set({ characters }),
   updateCharacters: (update) =>
     set((state) => ({
-      characters: typeof update === 'function' ? update(state.characters) : update,
+      characters: typeof update === 'function' ? update(state.characters) : update.length === 0
+        ? []
+        : [...state.characters, ...update],
     })),
   updateLoadingStatus: (status) => set({ isLoading: status }),
   updateSearchQuery: (query) => set({ searchQuery: query }),
