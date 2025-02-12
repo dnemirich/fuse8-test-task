@@ -1,10 +1,12 @@
 {
   "name": "fuse8-test-task",
+  "homepage": "https://dnemirich.github.io/fuse8-test-task",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "deploy": "pnpm build && gh-pages -d dist",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
