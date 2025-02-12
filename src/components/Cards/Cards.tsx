@@ -21,7 +21,7 @@ export const Cards = () => {
     if (isNextApiPageNeeded) {
       setApiPage(apiPage + 1);
     }
-  }, [currentPage]);
+  }, [currentPage, apiPage]);
 
   const pageChangeHandler = (_: ChangeEvent<unknown>, page: number) => {
     setCurrentPage(page);
