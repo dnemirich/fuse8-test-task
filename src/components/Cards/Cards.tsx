@@ -33,9 +33,9 @@ export const Cards = () => {
         {charactersToShow && charactersToShow.map(character => <Card key={character.id} character={character} />)}
       </div>
       {charactersFound > 8 &&
-        <Pagination count={paginationTotalPages} page={currentPage} onChange={pageChangeHandler} size={'large'} sx={{
+        <Pagination count={paginationTotalPages} page={currentPage} onChange={pageChangeHandler} size={'small'} sx={{
           '& .MuiPaginationItem-root': {
-            fontSize: '1.6rem',
+            fontSize: '1.4rem',
             fontFamily: 'Montserrat',
             color: '#282626'
           },
